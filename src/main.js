@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function(){
     const buttons = document.querySelectorAll('[data-tab-button]')
+    const questions = document.querySelectorAll('[data-faq-question]')
 
 
 
@@ -15,6 +16,16 @@ document.addEventListener('DOMContentLoaded', function(){
             
         })
     })
+
+    questions.forEach(item => {
+        item.addEventListener('click', abreOuFechaResposta)
+    })
+
+function abreOuFechaResposta(el){
+    const classe = 'faq__questions__item--is-open'
+    const elPai = el.target.parentNode
+    elPai.classList.toggle(classe)
+}
 })
 
 function removeBotaoAtivo(){
